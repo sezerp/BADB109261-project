@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.pawelzabczynski</groupId>
+  <artifactId>bada-project</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <modules>
+    <module>db</module>
+  </modules>
+  <name>DB - Project</name>
+
+  <properties>
+    <liquibase.disabled>true</liquibase.disabled>
+    <schema/>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mariadb.jdbc</groupId>
+      <artifactId>mariadb-java-client</artifactId>
+      <version>2.6.0</version>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>local</id>
+      <properties>
+        <liquibase.properties.path>
+          ${schema}/src/main/resources/configuration/liquibase-local.properties
+        </liquibase.properties.path>
+        <liquibase.context>local</liquibase.context>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <finalName>bada-${project.version}}</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.liquibase</groupId>
+          <artifactId>liquibase-maven-plugin</artifactId>
+          <version>3.6.0</version>
+          <configuration>
+            <defaultSchemaName>${liquibase.schema.name}</defaultSchemaName>
+            <contexts>${liquibase.context}</contexts>
+            <skip>${liquibase.disabled}</skip>
+            <changeLogFile>${schema}/src/main/resources/changelog-master.xml</changeLogFile>
+            <propertyFile>${liquibase.properties.path}</propertyFile>
+            <propertyFileWillOverride>true</propertyFileWillOverride>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>update</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
