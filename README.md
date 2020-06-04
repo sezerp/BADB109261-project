@@ -46,7 +46,7 @@ Connection parameters:
 
 The username and password are taken from [docker-compose.yml](./docker/docker-compose.yml)
 under `MYSQL_USER` and `MYSQL_PASSWORD`. 
-The URL is standard MySql jdbc URL `jdbc:mariadb://localhost:3306/baza_danych` and connect to database created 
+The URL is standard MySql jdbc URL `jdbc:mariadb://localhost:3306/portal` and connect to database created 
 on start with name provided as `MYSQL_DATABASE`. For more [Docker Hub MariaDB](https://hub.docker.com/_/mariadb)
 under **Environment Variables**
 
