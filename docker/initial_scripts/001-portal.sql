@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS portal;
+ALTER SCHEMA portal CHARACTER SET utf8 COLLATE utf8_polish_ci;
+
+CREATE USER IF NOT EXISTS 'liquibase_user'@'%' IDENTIFIED BY 'sm@l0@t@';
+GRANT ALL PRIVILEGES ON portal.* TO 'liquibase_user'@'%' WITH GRANT OPTION;

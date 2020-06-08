@@ -5,6 +5,123 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-  <include file="versions/init-database.xml" relativeToChangelogFile="true"/>
+  <changeSet id="00001-table-users" author="pzabczynski">
+    <comment>
+      Creating user table
+    </comment>
+    <sqlFile path="./sqlFiles/00001-table-users.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00002-table-api_keys" author="pzabczynski">
+    <comment>
+      Creating api keys table required for frontend Single Page Site
+    </comment>
+    <sqlFile path="./sqlFiles/00002-table-api_keys.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00003-table-password_reset_codes" author="pzabczynski">
+    <comment>
+      Creating password reset codes tables required for reset password functionality
+    </comment>
+    <sqlFile path="./sqlFiles/00003-table-password_reset_codes.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00004-table-scheduled_emails" author="pzabczynski">
+    <comment>
+      Creating scheduled_emails required for sending emails and queueing them in system
+    </comment>
+    <sqlFile path="./sqlFiles/00004-table-scheduled_emails.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00005-table-scheduled_emails" author="pzabczynski">
+    <comment>
+      Creating interests as reference table
+    </comment>
+    <sqlFile path="./sqlFiles/00005-table-interests.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00006-table-user_post" author="pzabczynski">
+    <comment>
+      Creating user_post table
+    </comment>
+    <sqlFile path="./sqlFiles/00006-table-user_post.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00007-table-user_post_hist" author="pzabczynski">
+    <comment>
+      Creating user_post table
+    </comment>
+    <sqlFile path="./sqlFiles/00007-table-user_post_hist.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00008-trigger-user_post_after_upd" author="pzabczynski">
+    <comment>
+      Creating user_post table
+    </comment>
+    <sqlFile path="./sqlFiles/00008-trigger-user_post_after_upd.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00009-table-friends" author="pzabczynski">
+    <comment>
+      Creating friends table
+    </comment>
+    <sqlFile path="./sqlFiles/00009-table-friends.sql" relativeToChangelogFile="true" />
+  </changeSet>
+
+  <changeSet id="00010-trigger-before-friends_ins" author="pzabczynski">
+    <comment>
+      Creating trigger before insert new friend checking if the user not rich the max friend limit
+      Additionally set created_at to current timestamp
+    </comment>
+    <sqlFile
+      path="./sqlFiles/00010-trigger-before-friends_ins.sql"
+      relativeToChangelogFile="true"
+      endDelimiter="//"
+      stripComments="true"
+    />
+  </changeSet>
+
+  <changeSet id="00011-trigger-user_before_ins" author="pzabczynski">
+    <comment>
+      Creating trigger before insert new user setting up nullable values to default if null and determine creation time
+    </comment>
+    <sqlFile
+      path="./sqlFiles/00011-trigger-user_before_ins.sql"
+      relativeToChangelogFile="true"
+      endDelimiter="//"
+      stripComments="true"
+    />
+  </changeSet>
+
+  <changeSet id="00012-trigger-user_post_before_ins" author="pzabczynski">
+    <comment>
+      Creating trigger before insert new user_post setting up nullable values to default
+    </comment>
+    <sqlFile
+      path="./sqlFiles/00012-trigger-user_post_before_ins.sql"
+      relativeToChangelogFile="true"
+      endDelimiter="//"
+      stripComments="true"
+    />
+  </changeSet>
+
+  <changeSet id="00013-trigger-api_keys_before_ins" author="pzabczynski">
+    <comment>
+      Creating trigger before insert new api_keys setting up nullable values to default
+    </comment>
+    <sqlFile
+      path="./sqlFiles/00013-trigger-api_keys_before_ins.sql"
+      relativeToChangelogFile="true"
+      endDelimiter="//"
+      stripComments="true"
+    />
+  </changeSet>
+
+  <changeSet id="00020-insert-sample-users" author="pzabczynski">
+    <comment>
+      Insert dummy users records
+    </comment>
+    <sqlFile path="./sqlFiles/00020-insert-sample-users.sql" relativeToChangelogFile="true" />
+  </changeSet>
 
 </databaseChangeLog>
