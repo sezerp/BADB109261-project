@@ -72,6 +72,3 @@ As RDBMS recomendation is: [DataGrip](https://www.jetbrains.com/datagrip/)
 The database portal represent simple social network application 
 
 ![database-uml](./public/readme/portal-db.png "portal Database UML")
-
-
-  
