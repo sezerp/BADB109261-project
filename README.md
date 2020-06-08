@@ -66,4 +66,12 @@ As result should appear similar log
 ![Liquibase](./public/readme/run_liquibase.png "Liquibase output")
 
 As RDBMS recomendation is: [DataGrip](https://www.jetbrains.com/datagrip/)
+
+### The project is part of learning SQL language
+
+The database portal represent simple social network application 
+
+![database-uml](./public/readme/portal-db.png "portal Database UML")
+
+
   
