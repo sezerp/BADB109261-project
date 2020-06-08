@@ -117,6 +117,28 @@
     />
   </changeSet>
 
+  <changeSet id="00014-table-comments" author="pzabczynski">
+    <comment>
+      Creating table represents user comments under posts
+    </comment>
+    <sqlFile
+      path="./sqlFiles/00014-table-comments.sql"
+      relativeToChangelogFile="true"
+    />
+  </changeSet>
+
+  <changeSet id="00015-trigger-comment_before_ins" author="pzabczynski">
+    <comment>
+      Creating trigger before insert new comments setting up nullable values to default
+    </comment>
+    <sqlFile
+      path="./sqlFiles/00015-trigger-comment_before_ins.sql"
+      relativeToChangelogFile="true"
+      endDelimiter="//"
+      stripComments="true"
+    />
+  </changeSet>
+
   <changeSet id="00020-insert-sample-users" author="pzabczynski">
     <comment>
       Insert dummy users records
